@@ -4,7 +4,7 @@ trigger:
 
     include:
 
-      -main
+      - main
 
 
 
