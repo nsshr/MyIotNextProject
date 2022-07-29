@@ -15,7 +15,10 @@ pool:
 
 
 steps:
-
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '3.1.x'
   
 
 - task: DotNetCoreCLI@2
@@ -60,4 +63,4 @@ steps:
 
     targetPath: '$(Build.ArtifactStagingDirectory)' 
 
-    artifactName: 'supplydotnet'
+    artifactName: 'shruthiartifact'
