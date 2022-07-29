@@ -12,7 +12,7 @@ variables:
 
   # Container registry service connection established during pipeline creation
 
-  dockerRegistryServiceConnection: 'nsshRegistry'
+  dockerRegistryServiceConnection: 'testdocker'
 
   imageRepository: 'hello'
 
@@ -69,17 +69,6 @@ stages:
 
       inputs:
          targetPath: '$(Pipeline.Workspace)'
-         artifact: 'pranayKubeArtifact'
+         artifact: 'helloartifact'
          publishLocation: 'pipeline'
 
-
-
-
-
-    - task: PublishPipelineArtifact@1
-
-      inputs:
-
-       targetPath: '$(Build.ArtifactStagingDirectory)' 
-
-       artifactName: 'helloartifact'
