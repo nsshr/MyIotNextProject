@@ -19,7 +19,7 @@ spec:
         - name: kiru
           image: prdctmntc.azurecr.io/kiru:#{Release.Artifacts.kiruArtifact.BuildId}#
      
-          imagePullPolicy: Always
+          imagePullPolicy:Always
           ports:
             - containerPort: 5000
 
