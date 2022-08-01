@@ -1,11 +1,10 @@
-[10:20 AM] Aduvala Pranay Sai
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kubepranay
-  namespace: testkubespace
+  name: kubens
+  namespace: kubenstest
   labels:
-    app: kubepranay
+    app: kubens
 spec:
   replicas: 1
   selector:
@@ -18,7 +17,7 @@ spec:
     spec:
       containers:
         - name: kiru
-          image: prdctmntc.azurecr.io/kiru:#{Release.Artifacts.kiru.BuildId}#
+          image: prdctmntc.azurecr.io/kiru:#{Release.Artifacts.kiruArtifact.BuildId}#
      
           imagePullPolicy: Always
           ports:
