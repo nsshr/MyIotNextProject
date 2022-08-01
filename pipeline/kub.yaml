@@ -17,13 +17,14 @@ spec:
     spec:
       containers:
         - name: kiru
-          image: prdctmntc.azurecr.io/kiru:#{Release.Artifacts.kubenstest.BuildId}#
+          image: prdctmntc.azurecr.io/kiru:#{Release.Artifacts.kiruArtifact.BuildId}#
+          
           imagePullPolicy: Always
           ports:
         - containerPort: 5000
 
       imagePullSecrets:
-        - name: azkubens
+        - name: azkubenstest
 ---
 ---
 apiVersion: v1
