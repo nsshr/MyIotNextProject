@@ -1,42 +1,77 @@
 apiVersion: apps/v1
+
 kind: Deployment
-metadata:
-  name: kubens
-  namespace: kubenstest
-  labels:
-    app: kubens
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: kubens
-  template:
-    metadata:
-      labels:
-        app: kubens
-    spec:
-      containers:
-        - name: kiru
-          image: prdctmntc.azurecr.io/kiru:#{Release.Artifacts.kiruArtifact.BuildId}#
-          
-          imagePullPolicy: Always
-          ports:
-        - containerPort: 5000
 
-      imagePullSecrets:
-        - name: azkubenstest
+metadata:
+
+  name: kubens
+
+  namespace: kubenstest
+
+  labels:
+
+    app: kubens
+
+spec:
+
+  replicas: 1
+
+  selector:
+
+    matchLabels:
+
+      app: kubens
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: kubens
+
+    spec:
+
+      containers:
+
+        - name: kiru
+
+          image: prdctmntc.azurecr.io/kiru:#{Release.Artifacts.kiruArtifact.BuildId}#
+
+     
+
+          imagePullPolicy: Always
+
+          ports:
+
+            - containerPort: 5000
+
+      imagePullSecrets:
+
+        - name: azkubenstest
+
 ---
+
 ---
+
 apiVersion: v1
+
 kind: Service
+
 metadata:
-  name: kubens
+
+  name: kubens
+
 spec:
-  type: LoadBalancer
-  ports:
-    - name: http
-      port: 5000
 
-  selector:
-    app: kubens
+  type: LoadBalancer
 
+  ports:
+
+    - name: http
+
+      port: 5000
+
+  selector:
+
+    app: kubens
