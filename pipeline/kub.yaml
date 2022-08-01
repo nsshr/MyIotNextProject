@@ -1,77 +1,43 @@
+[10:20 AM] Aduvala Pranay Sai
 apiVersion: apps/v1
-
 kind: Deployment
-
 metadata:
-
-  name: nsshrKube
-
-  namespace: nsshrkubeproject
-
-  labels:
-
-    app: nsshrkube
-
+  name: kubepranay
+  namespace: testkubespace
+  labels:
+    app: kubepranay
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubens
+  template:
+    metadata:
+      labels:
+        app: kubens
+    spec:
+      containers:
+        - name: kiru
+          image: prdctmntc.azurecr.io/kiru:#{Release.Artifacts.kiru.BuildId}#
+     
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
 
-  replicas: 1
-
-  selector:
-
-    matchLabels:
-
-      app: nsshrkube
-
-  template:
-
-    metadata:
-
-      labels:
-
-        app: nsshrkube
-
-    spec:
-
-      containers:
-
-        - name: hello
-
-          image: prdctmntc.azurecr.io/hello:#{Release.Artifacts.hellokubeartifact.BuildId}#
-
-     
-
-          imagePullPolicy: Always
-
-          ports:
-
-            - containerPort: 5000
-
-      imagePullSecrets:
-
-        - name: aznsshrKubeproject
-
+      imagePullSecrets:
+        - name: azkubens
 ---
-
 ---
-
 apiVersion: v1
-
 kind: Service
-
 metadata:
-
-  name: nsshrkube
-
+  name: kubens
 spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 5000
 
-  type: LoadBalancer
+  selector:
+    app: kubens
 
-  ports:
-
-    - name: http
-
-      port: 5000
-
-  selector:
-
-    app: nsshrkube
