@@ -71,4 +71,6 @@ stages:
          targetPath: '$(Pipeline.Workspace)'
          artifact: 'kiruArtifact'
          publishLocation: 'pipeline'
+         
+         
 
