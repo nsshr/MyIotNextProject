@@ -69,6 +69,6 @@ stages:
 
       inputs:
          targetPath: '$(Pipeline.Workspace)'
-         artifact: 'helloartifact'
+         artifact: 'hellokubeartifact'
          publishLocation: 'pipeline'
 
