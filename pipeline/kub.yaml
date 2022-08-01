@@ -18,10 +18,9 @@ spec:
       containers:
         - name: kiru
           image: prdctmntc.azurecr.io/kiru:#{Release.Artifacts.kiruArtifact.BuildId}#
-     
-          imagePullPolicy:Always
+          imagePullPolicy: Always
           ports:
-            - containerPort: 5000
+        - containerPort: 5000
 
       imagePullSecrets:
         - name: azkubens
